@@ -3,69 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Ti ❤️</title>
+    <title>Para Vos ❤️</title>
     <style>
         body {
-            background-color: #fce4ec;
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .container {
             text-align: center;
-            max-width: 300px;
-            border: 2px solid #f06292;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            max-width: 80%;
         }
-        h1 { color: #d81b60; font-size: 24px; }
-        p { color: #4a4a4a; line-height: 1.6; }
-        .heart {
-            color: #e91e63;
-            font-size: 50px;
-            animation: beat 1s infinite;
+        h1 { color: #d81b60; font-size: 2rem; }
+        .heart-rain {
+            position: absolute;
+            top: -10%;
+            color: #ff4d6d;
+            font-size: 20px;
+            user-select: none;
+            animation: fall linear forwards;
         }
-        @keyframes beat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        @keyframes fall {
+            to { transform: translateY(110vh); }
         }
-        .btn {
-            background-color: #f06292;
+        button {
+            background: #ff4d6d;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
             cursor: pointer;
+            transition: transform 0.3s;
         }
+        button:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="heart">❤️</div>
-    <h1>¡Hola, mi amor!</h1>
-    <p>Solo quería recordarte que eres la persona más especial en mi mundo. Gracias por cada sonrisa y por estar a mi lado.</p>
-    <p><strong>¿Sabes qué?</strong></p>
-    <button class="btn" onclick="mostrarMensaje()">Haz clic aquí</button>
-    <p id="mensajeExtra" style="display:none; margin-top:15px; font-weight:bold; color:#d81b60;">
-        ¡Te amo más que ayer, pero menos que mañana! 🌹
-    </p>
-</div>
+    <div class="container">
+        <h1>Tengo algo que decirte...</h1>
+        <button onclick="explotar()">Tocá acá</button>
+        <div id="mensaje" style="display:none; margin-top: 20px;">
+            <h2 style="color: #c9184a;">¡Sos lo mejor que me pasó! ❤️</h2>
+            <p>Gracias por existir.</p>
+        </div>
+    </div>
 
-<script>
-    function mostrarMensaje() {
-        document.getElementById('mensajeExtra').style.display = 'block';
-    }
-</script>
+    <script>
+        function crearCorazon() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-rain');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.opacity = Math.random();
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
 
+        function explotar() {
+            document.getElementById('mensaje').style.display = 'block';
+            setInterval(crearCorazon, 100);
+        }
+    </script>
 </body>
 </html>
+
