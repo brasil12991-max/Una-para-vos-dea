@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti ❤️</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 300px;
+            border: 2px solid #f06292;
+        }
+        h1 { color: #d81b60; font-size: 24px; }
+        p { color: #4a4a4a; line-height: 1.6; }
+        .heart {
+            color: #e91e63;
+            font-size: 50px;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .btn {
+            background-color: #f06292;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="heart">❤️</div>
+    <h1>¡Hola, mi amor!</h1>
+    <p>Solo quería recordarte que eres la persona más especial en mi mundo. Gracias por cada sonrisa y por estar a mi lado.</p>
+    <p><strong>¿Sabes qué?</strong></p>
+    <button class="btn" onclick="mostrarMensaje()">Haz clic aquí</button>
+    <p id="mensajeExtra" style="display:none; margin-top:15px; font-weight:bold; color:#d81b60;">
+        ¡Te amo más que ayer, pero menos que mañana! 🌹
+    </p>
+</div>
+
+<script>
+    function mostrarMensaje() {
+        document.getElementById('mensajeExtra').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
